@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html   超文本标记语言 lang="zh-CN">
+<head   头>
+    <meta   元 charset   字符集   字符集="UTF-8"   “utf - 8”>
+    <meta   元 name   名字   名字="viewport"   “视口” content   内容   内容="width=device-width, initial-scale=1.0">
+    <title>动态JS测试页面</title>
+    <style   风格>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color   背景颜色   背景颜色: #f0f0f0;
+        }
+        .container {
+            background-color   背景颜色   背景颜色: white;
+            padding   填充: 20px;
+            border-radius   这个特性: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);盒阴影：0 2 像素 10 像素 rgba(0,0,0,0.1)；
+        }
+        #dynamicText {
+            margin-top: 15px;
+            padding   填充   填充: 10px;
+            background-color   背景颜色   背景颜色: #e6f7ff;背景颜色：#e6f7ff
+            border-left: 4px solid   固体 #1890ff;border-left: 4px solid #1890ff；  左边框：4 像素实线，颜色为 #1890ff；
+            display   显示   显示   显示: none   没有一个; /* 初始状态为隐藏 */
+        }
+        button   按钮 {
+            padding   填充   填充: 10px 15px;
+            font-size: 16px;
+            cursor: pointer   指针;
+            background-color   背景颜色: #1890ff;背景颜色：#1890ff
+            color   颜色: white   白色;
+            border   边境: none   没有一个   没有一个;
+            border-radius   这个特性   这个特性: 4px;
+        }
+        button   按钮:hover {
+            background-color   背景颜色   背景颜色: #40a9ff;
+        }
+    </style   风格>
+</head   头>
+<body>
+
+<div class   类="container">
+    <h1>欢迎来到动态JS测试页面</h1>
+    <p>点击下面的按钮来触发一些动态效果。</p>
+
+    <!-- 按钮用于触发JS函数 -->
+    <button   按钮 id="myButton">点击我！</button   按钮   按钮>
+
+    <!-- 一个初始隐藏的段落，用于动态显示 -->
+    <div id="dynamicText">
+        <p>这是通过 JavaScript 动态显示的内容！</p>
+        <p>时间: <span id="currentTime"></span></p>
+    </div>
+</div>
+
+<script>
+    // 1. 获取DOM元素的引用
+    const   常量 button   按钮   按钮 = document.getElementById('myButton');
+    const   常量 textDiv = document.getElementById('dynamicText');
+
+    // 2. 定义一个函数，用于执行动态操作
+    function   函数 handleButtonClick() {
+        // a. 获取当前时间
+        const   常量 now   现在   现在 = new   新 Date   日期   日期();
+        const   常量 timeString = now.toLocaleString(); // 获取本地格式的时间字符串
+
+        // b. 更新页面上的时间显示
+        document.getElementById('currentTime').textContent = timeString;
+
+        // c. 显示之前隐藏的div
+        textDiv.style   风格.display   显示 = 'block';
+
+        // d. 改变按钮的文本和颜色，提供即时反馈
+        button   按钮.textContent = '已点击！';
+        button   按钮.style   风格   风格.backgroundColor = '#52c41a'; // 绿色
+
+        // e. 使用setTimeout在2秒后恢复按钮的原始状态
+        setTimeout(() => {
+            button   按钮.textContent = '点击我！';
+            button   按钮.style   风格.backgroundColor = '#1890ff'   “# 1890 ff”; // 恢复蓝色
+        }, 2000);
+    }
+
+    // 3. 将函数与按钮的点击事件关联起来
+    button   按钮.addEventListener('click'   “点击”, handleButtonClick);
+</script   脚本>
+
+</body   身体>
+</html   超文本标记语言>
