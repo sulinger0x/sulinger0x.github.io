@@ -377,7 +377,7 @@ window.SCENES = [
     hint: "点击 · 立即凝聚下一个词",
     create(env) {
       const { scene, camera } = env;
-      const WORDS = ["你好 世界", "星辰 大海", "无限 可能", "AURORA", "宇宙 浪漫", "光 即 代码"];
+      const WORDS = ["你好 世界", "星辰 大海", "无限 可能", "宇宙 浪漫", "光 即 代码", "溯灵 星奏"];
       const N = 9000;
       const pos = new Float32Array(N * 3), col = new Float32Array(N * 3);
       const siz = new Float32Array(N), alp = new Float32Array(N);
